@@ -14,6 +14,8 @@ Open [the local preview](http://127.0.0.1:4173). The page reloads when website f
 
 ## Check before committing
 
+The automatic GitHub Actions workflow is prepared locally, but its first upload is pending GitHub workflow permission. Until it is uploaded, run validation locally with the command below.
+
 Python 3.12 or newer and Node.js 22 or newer are used in CI.
 
 ```sh
@@ -26,7 +28,7 @@ This checks local page links and fragments, image descriptions and dimensions, C
 
 - `Portfolio/`: deployable website, including compressed images and fonts.
 - `scripts/`: local preview and validation tools.
-- `.github/workflows/`: automatic checks for pushes and pull requests.
+- `.github/`: GitHub configuration and dependency update scheduling. The validation workflow upload is pending.
 - `AGENTS.md`: project conventions and design constraints.
 
 Scratch work, original PNG render sequences, local settings, secrets, and the separate `claudinder` project are excluded through `.gitignore`. They remain on the local computer; GitHub does not back them up.
