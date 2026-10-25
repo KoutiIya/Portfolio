@@ -48,7 +48,9 @@ Keep `main` as the stable, reviewed version. Commit useful checkpoints rather th
 
 ## Future Cloudflare deployment
 
-Cloudflare hosting is not configured by this setup. When connecting Cloudflare Pages:
+An existing Cloudflare Workers integration is connected to the repository and posts build checks. Its deployment settings are managed separately; this repository setup does not alter them.
+
+If choosing Cloudflare Pages for the static site later:
 
 - Framework preset: None.
 - Build command: leave empty.

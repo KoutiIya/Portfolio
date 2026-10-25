@@ -7,7 +7,7 @@
 - Preview locally with `python3 scripts/preview.py`. Keep browser verification honest: syntax and asset checks do not establish accessibility conformance.
 - Inspect existing changes before editing. Do not modify the separate `claudinder` project as part of this site.
 - Preserve original images, render masters, and scratch files locally. Do not add ignored material or credentials to commits.
-- Changes are local unless publishing is requested. Cloudflare deployment is not configured in this repository yet.
+- An existing Cloudflare Workers integration posts build checks for the repository. It may attempt builds when branches are pushed. Do not change its deployment settings or DNS without a deployment request.
 
 ## Design and copy
 
