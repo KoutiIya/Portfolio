@@ -21,8 +21,8 @@
 
 ## Podoscope
 
-- The project page currently contains only the scroll-controlled hero and shared navigation. Do not restore the earlier case study or gallery without a request.
-- Scroll position controls the frame and subtitle reveal directly in both directions. The first frame holds at the top. Do not introduce timed autoplay or scroll hijacking.
+- The project page contains the scroll-controlled hero, a usage demonstration, and a scroll-controlled software screenshot presentation. Do not restore the earlier case study or gallery without a request.
+- Scroll position controls the frame and subtitle reveal directly in both directions. The first frame holds at the top. Do not introduce timed autoplay for the hero or scroll hijacking.
 - Crop around the right third of the images, with the product focal point near 78 percent of source width. Prioritise desktop composition for now.
 - The app has four indices and semi-automatic measurement adjustment. Its colour map represents image intensity, not calibrated pressure.
 - Distinguish the built prototype, proposed exterior, design goals, and measured results. Do not invent clinical validation.

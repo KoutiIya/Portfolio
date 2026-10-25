@@ -140,3 +140,32 @@
   .demonstration-intro p + p { font-size: 16px; }
   .demonstration-control { top: 12px; right: 12px; }
 }
+
+/* One shared screen area; scroll position crossfades its content. */
+.software-track { position: relative; }
+.software-stage { width: min(100% - 96px, 1360px); margin: 0 auto; }
+.software-panel { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); align-items: center; gap: clamp(32px, 5vw, 80px); padding: 64px 0; }
+.software-copy { text-align: left; }
+.software-label { margin: 0 0 24px; color: var(--muted); font-size: 16px; }
+.software-count { margin-left: 16px; }
+.software-copy h2 { margin: 0 0 24px; font-size: clamp(26px, 2.7vw, 40px); font-weight: 300; }
+.software-copy > p:last-child { margin: 0; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; }
+.software-screen { width: 100%; margin: 0; }
+.software-screen img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
+.software-track[data-enhanced='true'] { height: 400svh; }
+.software-track[data-enhanced='true'] .software-stage { position: sticky; top: var(--hero-header-height); height: calc(100svh - var(--hero-header-height)); }
+.software-track[data-enhanced='true'] .software-panel { position: absolute; inset: 0; padding: 32px 0; opacity: var(--panel-opacity, 0); transform: translateY(var(--panel-offset, 20px)); pointer-events: none; }
+.software-track[data-enhanced='true'] .software-screen { max-width: calc((100svh - var(--hero-header-height) - 64px) * 1.777778); justify-self: center; }
+@media (max-width: 900px) {
+  .software-stage { width: calc(100% - 40px); }
+  .software-panel { grid-template-columns: 1fr; align-content: center; gap: 24px; }
+  .software-copy { max-width: 58ch; }
+  .software-label { margin-bottom: 12px; }
+  .software-copy h2 { margin-bottom: 16px; font-size: 28px; }
+  .software-copy > p:last-child { font-size: 17px; line-height: 1.5; }
+  .software-track[data-enhanced='true'] .software-screen { max-width: calc((100svh - var(--hero-header-height) - 320px) * 1.777778); }
+}
+@media (max-height: 650px) and (max-width: 900px) {
+  .software-copy h2 { font-size: 24px; }
+  .software-copy > p:last-child { font-size: 16px; }
+}
