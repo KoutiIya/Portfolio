@@ -279,3 +279,7 @@ footer a[aria-label='X'] svg { width: 16px; height: 16px; }
   .podoscope-story .story-hero-image { margin-top: 32px; }
   .story-hero-image img { aspect-ratio: 4 / 3; }
 }
+
+/* Frame the product itself inside the compact homepage thumbnail. */
+.project-horizontal .thumbnail { position: relative; }
+.project-horizontal .thumbnail img { position: absolute; left: 50%; top: 50%; height: 170%; width: auto; max-width: none; transform: translate(-78%, -50%); }

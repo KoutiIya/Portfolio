@@ -38,3 +38,6 @@ __pycache__/
 
 # Temporary browser review pages
 /Portfolio/__*review*.html
+
+# Separate prototype software is not part of the public portfolio
+/Portfolio/Podoscope-App/

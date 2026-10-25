@@ -1,4 +1,4 @@
-/* This page contains only the shared navigation and scroll-controlled hero. */
+/* Scroll-controlled introduction followed by the demonstration. */
 .sequence-page {
   --hero-header-height: 80px;
   display: block;
@@ -90,4 +90,53 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .sequence-page .sequence-track { height: calc(100svh - var(--hero-header-height)); }
+}
+
+.sequence-page .podoscope-page { width: 100%; margin: 0; }
+.podoscope-demonstration {
+  --demonstration-gap: clamp(48px, 5vw, 72px);
+  width: min(100% - 96px, 1280px);
+  margin: 0 auto;
+  padding: var(--demonstration-gap) 0;
+}
+.demonstration-intro, .demonstration-description {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(19px, 1.7vw, 24px);
+  line-height: 1.6;
+}
+.demonstration-intro p { margin: 0; }
+.demonstration-intro p + p { margin-top: 24px; color: var(--muted); font-size: 18px; }
+.demonstration-player {
+  position: relative;
+  width: min(100%, 1080px, calc((100svh - var(--hero-header-height) - 64px) * 1.777778));
+  margin: var(--demonstration-gap) auto;
+  background: #c4bca8;
+}
+.demonstration-player video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.demonstration-control {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--control-border);
+  border-radius: 0;
+  background: #151515;
+  color: #e8e8e8;
+  font: 400 16px 'Barlow', sans-serif;
+  cursor: pointer;
+}
+.demonstration-control[hidden] { display: none; }
+.demonstration-control:hover { border-color: var(--accent); color: var(--accent); }
+.demonstration-control [data-video-icon] { display: block; flex: none; width: 20px; height: 20px; }
+@media (max-width: 600px) {
+  .podoscope-demonstration { width: calc(100% - 40px); }
+  .demonstration-intro p + p { font-size: 16px; }
+  .demonstration-control { top: 12px; right: 12px; }
 }

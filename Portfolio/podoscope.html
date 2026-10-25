@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="description" content="A smart podoscope for foot imaging and semi-automatic arch index analysis. A design project by Koutilya Karamala."><title>Podoscope | Koutilya Karamala</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="podoscope-hero.css"></head><body class="sequence-page"><a class="skip-link" href="#main-content">Skip to content</a><header><a class="site-name" href="index.html">Koutilya Karamala</a><nav aria-label="Main navigation"><a href="index.html" aria-current="true">Design</a><a href="content.html">Content</a><a href="music.html">Music</a><a href="about.html">About</a></nav></header><main id="main-content" class="sequence-track" tabindex="-1" aria-labelledby="project-title" data-sequence data-static="true">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="description" content="A smart podoscope for foot imaging and semi-automatic arch index analysis. A design project by Koutilya Karamala."><title>Podoscope | Koutilya Karamala</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="podoscope-hero.css"></head><body class="sequence-page"><a class="skip-link" href="#main-content">Skip to content</a><header><a class="site-name" href="index.html">Koutilya Karamala</a><nav aria-label="Main navigation"><a href="index.html" aria-current="true">Design</a><a href="content.html">Content</a><a href="music.html">Music</a><a href="about.html">About</a></nav></header><main id="main-content" class="podoscope-page" tabindex="-1" aria-labelledby="project-title">
+<section class="sequence-track" data-sequence data-static="true" aria-label="Product introduction">
   <p class="sr-only">Scroll down to advance the product render and scroll up to reverse it. The sequence holds still when scrolling stops.</p>
   <div class="sequence-stage">
     <picture class="sequence-poster">
@@ -13,5 +14,20 @@
     </div>
   </div>
   <p id="sequence-status" class="sr-only" role="status"></p>
+</section>
+<section class="podoscope-demonstration" aria-label="Purpose and demonstration">
+  <div class="demonstration-intro">
+    <p>This project explored how foot imaging and computed measurements to assess high and low arches, bunions, and other foot conditions could be provided in an easy to use and affordable form factor.</p>
+    <p>Designed for and prototyped at BIOMADE Lab at BITS Pilani Goa Campus</p>
+  </div>
+  <div class="demonstration-player" data-demonstration>
+    <video controls muted playsinline preload="metadata" width="2400" height="1350" poster="images/podoscope/demonstration-poster.jpg" aria-label="Demonstration of a patient using the Podoscope" aria-describedby="demonstration-description">
+      <source src="videos/podoscope/demonstration.mp4" type="video/mp4">
+      Your browser does not support this video. <a href="videos/podoscope/demonstration.mp4">Download the demonstration</a>.
+    </video>
+    <button class="demonstration-control" type="button" hidden aria-label="Play demonstration video"><svg data-video-icon aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path data-control-play d="M9 5 L19 12 L9 19 Z" fill="currentColor" stroke="none"></path><path data-control-pause d="M8 5 V19 M16 5 V19" style="display:none"></path><g data-control-replay style="display:none"><path d="M4 10 A8 8 0 1 1 5 17"></path><path d="M4 4 V10 H10"></path></g></svg><span class="sr-only" data-video-label>Play</span></button>
+  </div>
+  <p id="demonstration-description" class="demonstration-description">The patient stands on the platform while the device captures an illuminated image of the soles under body weight. The mirror underneath lets the operator get a quick look at the footprint when a detailed analysis is not needed.</p>
+</section>
 </main>
-<script src="podoscope-hero.js" defer></script></body></html>
+<script src="podoscope-hero.js" defer></script><script src="podoscope-video.js" defer></script></body></html>

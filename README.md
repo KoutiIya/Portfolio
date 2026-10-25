@@ -31,11 +31,11 @@ This checks local page links and fragments, image descriptions and dimensions, C
 - `.github/`: automatic checks for pushes and pull requests, plus dependency update scheduling.
 - `AGENTS.md`: project conventions and design constraints.
 
-Scratch work, original PNG render sequences, local settings, secrets, and the separate `claudinder` project are excluded through `.gitignore`. They remain on the local computer; GitHub does not back them up.
+Scratch work, original PNG render sequences, local settings, secrets, the separate Podoscope prototype app, and the separate `claudinder` project are excluded through `.gitignore`. They remain on the local computer; GitHub does not back them up.
 
 ## Current state
 
-The Podoscope page contains a scroll-controlled 48-frame hero. Scroll position selects an image on a canvas and reveals the subtitle. The scene prioritises the product in the right third when cropped. Reduced-motion and loading-failure modes provide a still image. Other portfolio pages and their approved media are included.
+The Podoscope page contains a scroll-controlled 48-frame hero. Scroll position selects an image on a canvas and reveals the subtitle. The scene prioritises the product in the right third when cropped. Reduced-motion and loading-failure modes provide a still image. Below the hero, centred project context introduces a six-second demonstration video and usage description. The video uses a browser-compatible H.264 MP4, pauses offscreen, respects reduced-motion preferences, and has accessible Play, Pause, and Replay controls. Other portfolio pages and their approved media are included.
 
 ## Git workflow
 
