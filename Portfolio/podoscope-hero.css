@@ -154,7 +154,7 @@
 .software-screen img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
 .software-track[data-enhanced='true'] { height: 400svh; }
 .software-track[data-enhanced='true'] .software-stage { position: sticky; top: var(--hero-header-height); height: calc(100svh - var(--hero-header-height)); }
-.software-track[data-enhanced='true'] .software-panel { position: absolute; inset: 0; padding: 32px 0; opacity: var(--panel-opacity, 0); transform: translateY(var(--panel-offset, 20px)); pointer-events: none; }
+.software-track[data-enhanced='true'] .software-panel { position: absolute; inset: 0; padding: 32px 0; pointer-events: none; }
 .software-track[data-enhanced='true'] .software-screen { max-width: calc((100svh - var(--hero-header-height) - 64px) * 1.777778); justify-self: center; }
 @media (max-width: 900px) {
   .software-stage { width: calc(100% - 40px); }
@@ -192,4 +192,18 @@
   .product-label { margin-bottom: 12px; }
   .product-description > p:last-child { font-size: 17px; line-height: 1.5; }
   .product-track[data-enhanced='true'] .product-render { max-width: calc((100svh - var(--hero-header-height) - 350px) * 1.777778); }
+}
+
+/* Screens switch immediately; only their accompanying copy fades upward. */
+.software-track[data-enhanced='true'] .software-copy { opacity: var(--panel-opacity, 0); transform: translateY(var(--panel-offset, 20px)); }
+.software-track[data-enhanced='true'] .software-screen { visibility: hidden; }
+.software-track[data-enhanced='true'] .software-panel[data-active='true'] .software-screen { visibility: visible; }
+.podoscope-gallery { width: min(100% - 96px, 1280px); margin: 0 auto; padding: 72px 0 120px; }
+.podoscope-gallery h2 { margin: 0 0 40px; font-size: clamp(32px, 3vw, 44px); font-weight: 300; }
+.prototype-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.prototype-grid figure { margin: 0; }
+.prototype-grid img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+@media (max-width: 600px) {
+  .podoscope-gallery { width: calc(100% - 40px); padding: 48px 0 72px; }
+  .prototype-grid { grid-template-columns: 1fr; gap: 20px; }
 }

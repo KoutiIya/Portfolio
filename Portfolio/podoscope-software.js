@@ -17,6 +17,7 @@
     if (!enhanced) {
       panels.forEach(panel => {
         panel.removeAttribute('aria-hidden');
+        delete panel.dataset.active;
         panel.style.removeProperty('--panel-opacity');
         panel.style.removeProperty('--panel-offset');
       });
@@ -36,6 +37,7 @@
       const offset = index === current ? -20 * blend : 20 * (1 - blend);
       panel.style.setProperty('--panel-opacity', opacity);
       panel.style.setProperty('--panel-offset', `${offset}px`);
+      panel.dataset.active = String(index === active);
       panel.setAttribute('aria-hidden', String(index !== active));
     });
   }
