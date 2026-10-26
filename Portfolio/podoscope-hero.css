@@ -142,29 +142,31 @@
   .demonstration-control { top: 12px; right: 12px; }
 }
 
-/* One shared screen area; scroll position crossfades its content. */
+/* Shared software screen and a stationary label above changing copy. */
 .software-track { position: relative; }
-.software-stage { width: min(100% - 96px, 1360px); margin: 0 auto; }
-.software-panel { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); align-items: center; gap: clamp(32px, 5vw, 80px); padding: 64px 0; }
+.software-stage { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); align-items: center; gap: clamp(32px, 5vw, 80px); width: min(100% - 96px, 1360px); margin: 0 auto; }
+.software-narrative, .software-text-stack, .software-screens { display: contents; }
+.software-label { grid-column: 1 / -1; order: -1; margin: 0; color: var(--muted); font-size: 16px; }
+.software-panel { padding: 32px 0; }
 .software-copy { text-align: left; }
-.software-label { margin: 0 0 24px; color: var(--muted); font-size: 16px; }
-.software-count { margin-left: 16px; }
 .software-copy h2 { margin: 0 0 24px; font-size: clamp(26px, 2.7vw, 40px); font-weight: 300; }
 .software-copy > p:last-child { margin: 0; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; }
 .software-screen { width: 100%; margin: 0; }
 .software-screen img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
 .software-track[data-enhanced='true'] { height: 400svh; }
-.software-track[data-enhanced='true'] .software-stage { position: sticky; top: var(--hero-header-height); height: calc(100svh - var(--hero-header-height)); }
-.software-track[data-enhanced='true'] .software-panel { position: absolute; inset: 0; padding: 32px 0; pointer-events: none; }
-.software-track[data-enhanced='true'] .software-screen { max-width: calc((100svh - var(--hero-header-height) - 64px) * 1.777778); justify-self: center; }
+.software-track[data-enhanced='true'] .software-stage { position: sticky; top: var(--hero-header-height); height: calc(100svh - var(--hero-header-height)); padding: 32px 0; }
+.software-track[data-enhanced='true'] .software-narrative { display: block; }
+.software-track[data-enhanced='true'] .software-label { margin-bottom: 24px; }
+.software-track[data-enhanced='true'] .software-text-stack, .software-track[data-enhanced='true'] .software-screens { display: grid; }
+.software-track[data-enhanced='true'] .software-panel { grid-area: 1 / 1; align-self: start; padding: 0; pointer-events: none; }
+.software-track[data-enhanced='true'] .software-screen { grid-area: 1 / 1; max-width: calc((100svh - var(--hero-header-height) - 64px) * 1.777778); justify-self: center; }
 @media (max-width: 900px) {
-  .software-stage { width: calc(100% - 40px); }
-  .software-panel { grid-template-columns: 1fr; align-content: center; gap: 24px; }
+  .software-stage { grid-template-columns: 1fr; align-content: center; gap: 24px; width: calc(100% - 40px); }
   .software-copy { max-width: 58ch; }
-  .software-label { margin-bottom: 12px; }
   .software-copy h2 { margin-bottom: 16px; font-size: 28px; }
   .software-copy > p:last-child { font-size: 17px; line-height: 1.5; }
-  .software-track[data-enhanced='true'] .software-screen { max-width: calc((100svh - var(--hero-header-height) - 320px) * 1.777778); }
+  .software-track[data-enhanced='true'] .software-label { margin-bottom: 12px; }
+  .software-track[data-enhanced='true'] .software-screen { max-width: calc((100svh - var(--hero-header-height) - 360px) * 1.777778); }
 }
 @media (max-height: 650px) and (max-width: 900px) {
   .software-copy h2 { font-size: 24px; }
@@ -185,8 +187,8 @@
 .product-track[data-enhanced='true'] { height: 320svh; }
 .product-track[data-enhanced='true'] .product-stage { position: sticky; top: var(--hero-header-height); height: calc(100svh - var(--hero-header-height)); padding: 32px 0; }
 .product-track[data-enhanced='true'] .product-render { max-width: calc((100svh - var(--hero-header-height) - 104px) * 1.777778); justify-self: center; }
-.product-track[data-enhanced='true'] .product-descriptions { display: grid; }
-.product-track[data-enhanced='true'] .product-description { grid-area: 1 / 1; align-self: center; margin: 0; opacity: var(--product-opacity, 0); transform: translateY(var(--product-offset, 20px)); }
+.product-track[data-enhanced='true'] .product-description-stack { display: grid; }
+.product-track[data-enhanced='true'] .product-description { grid-area: 1 / 1; align-self: start; margin: 0; opacity: var(--product-opacity, 0); transform: translateY(var(--product-offset, 20px)); }
 @media (max-width: 900px) {
   .product-stage { grid-template-columns: 1fr; align-content: center; gap: 24px; width: calc(100% - 40px); }
   .product-description h2 { font-size: 28px; margin-bottom: 16px; }
@@ -198,7 +200,7 @@
 /* Screens switch immediately; only their accompanying copy fades upward. */
 .software-track[data-enhanced='true'] .software-copy { opacity: var(--panel-opacity, 0); transform: translateY(var(--panel-offset, 20px)); }
 .software-track[data-enhanced='true'] .software-screen { visibility: hidden; }
-.software-track[data-enhanced='true'] .software-panel[data-active='true'] .software-screen { visibility: visible; }
+.software-track[data-enhanced='true'] .software-screen[data-active='true'] { visibility: visible; }
 .podoscope-gallery { width: min(100% - 96px, 1280px); margin: 0 auto; padding: 0 0 var(--section-gap); }
 .podoscope-gallery h2 { margin: 0 0 16px; font-size: clamp(32px, 3vw, 44px); font-weight: 300; }
 .prototype-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
@@ -212,3 +214,6 @@
 /* One consistent gap at every section boundary and around the demo video. */
 .podoscope-page > section + section { margin-top: var(--section-gap); }
 .gallery-subtitle { margin: 0 0 40px; max-width: 68ch; font-size: 18px; line-height: 1.6; color: var(--muted); }
+
+.sequence-page .podoscope-contact { position: static; justify-content: flex-end; width: min(100% - 96px, 1280px); margin: 0 auto 24px; }
+@media (max-width: 600px) { .sequence-page .podoscope-contact { width: calc(100% - 40px); } }

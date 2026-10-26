@@ -4,6 +4,7 @@
   if (!track) return;
   const stage = track.querySelector('.software-stage');
   const panels = [...track.querySelectorAll('[data-software-panel]')];
+  const screens = [...track.querySelectorAll('[data-software-screen]')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const shortScreen = matchMedia('(max-height: 600px)');
   let pending = false;
@@ -20,6 +21,10 @@
         delete panel.dataset.active;
         panel.style.removeProperty('--panel-opacity');
         panel.style.removeProperty('--panel-offset');
+      });
+      screens.forEach(screen => {
+        delete screen.dataset.active;
+        screen.removeAttribute('aria-hidden');
       });
       return;
     }
@@ -39,6 +44,8 @@
       panel.style.setProperty('--panel-offset', `${offset}px`);
       panel.dataset.active = String(index === active);
       panel.setAttribute('aria-hidden', String(index !== active));
+      screens[index].dataset.active = String(index === active);
+      screens[index].setAttribute('aria-hidden', String(index !== active));
     });
   }
   function schedule() {

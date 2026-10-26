@@ -282,4 +282,4 @@ footer a[aria-label='X'] svg { width: 16px; height: 16px; }
 
 /* Frame the product itself inside the compact homepage thumbnail. */
 .project-horizontal .thumbnail { position: relative; }
-.project-horizontal .thumbnail img { position: absolute; left: 50%; top: 50%; height: 170%; width: auto; max-width: none; transform: translate(-78%, -50%); }
+.project-horizontal .thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }

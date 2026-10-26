@@ -34,59 +34,58 @@
   <div class="product-stage">
     <figure class="product-render">
       <img data-product-frame src="images/podoscope/studio-round/0001.webp" width="1440" height="810" alt="Proposed Podoscope exterior viewed in a studio render" loading="lazy" decoding="async">
-      <figcaption>Exterior</figcaption>
     </figure>
     <div class="product-descriptions">
+      <p class="product-label">Design Specifications</p>
+      <div class="product-description-stack">
       <article class="product-description" data-product-description>
-        <p class="product-label">Design Specifications <span>1 of 3</span></p>
         <h2>Reducing the Step Height</h2>
         <p>The earlier prototype was tall and difficult to step onto without assistance. The redesign prioritised a lower platform to make stepping onto the device easier.</p>
       </article>
       <article class="product-description" data-product-description>
-        <p class="product-label">Design Specifications <span>2 of 3</span></p>
         <h2>Capturing Both Feet</h2>
         <p>A wide camera beneath the platform captures both feet. The mirror provides a quick visual check of the footprint without opening the analysis software.</p>
       </article>
       <article class="product-description" data-product-description>
-        <p class="product-label">Design Specifications <span>3 of 3</span></p>
         <h2>Form and Fabrication</h2>
         <p>The enclosure’s outward draft gives the form a broader visual base and a sense of stability. A working prototype combined a wooden body, an acrylic platform, and a 3D printed enclosure.</p>
       </article>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="software-track" data-software aria-label="Podoscope software capabilities">
   <div class="software-stage">
-    <article class="software-panel" data-software-panel>
-      <div class="software-copy"><p class="software-label">Software <span class="software-count">1 of 4</span></p><h2>From Capture to Analysis</h2><p>Live preview helps the operator check positioning before capture. The captured image can then be reviewed, cropped, and analysed in the accompanying software.</p></div>
-      <figure class="software-screen"><img src="images/podoscope/software/raw.png" width="3024" height="1964" alt="Software showing the captured foot image alongside computed arch indices" loading="lazy" decoding="async"></figure>
-    </article>
-    <article class="software-panel" data-software-panel>
-      <div class="software-copy"><p class="software-label">Software <span class="software-count">2 of 4</span></p><h2>Adjustable Measurements</h2><p>The software calculates multiple arch indices from the scanned images. A weighted score helps make an informed diagnosis. The operator can adjust measurement points and review each result against its reference range.</p></div>
-      <figure class="software-screen"><img src="images/podoscope/software/measurements.png" width="3024" height="1964" alt="Both feet with adjustable Chippaux-Smirak measurement lines and index results" loading="lazy" decoding="async"></figure>
-    </article>
-    <article class="software-panel" data-software-panel>
-      <div class="software-copy"><p class="software-label">Software <span class="software-count">3 of 4</span></p><h2>Colour Map</h2><p>The colour map displays differences in image intensity. Both feet remain visible together, with their measurements and classifications alongside the images.</p></div>
-      <figure class="software-screen"><img src="images/podoscope/software/comparison.png" width="3024" height="1964" alt="Side-by-side foot colour maps with computed measurements and a weighted classification summary" loading="lazy" decoding="async"></figure>
-    </article>
-    <article class="software-panel" data-software-panel>
-      <div class="software-copy"><p class="software-label">Software <span class="software-count">4 of 4</span></p><h2>Reports and Records</h2><p>Save a session with patient details and clinical notes, then generate a PDF report containing the foot images, measurements, and assessment summary. A reference guide accompanies the results.</p></div>
-      <figure class="software-screen"><img src="images/podoscope/software/report.png" width="3024" height="1964" alt="Software report preview containing foot images, colour maps, and an index table" loading="lazy" decoding="async"></figure>
-    </article>
+    <div class="software-narrative">
+      <p class="software-label">Software</p>
+      <div class="software-text-stack">
+        <article class="software-panel" data-software-panel style="order: 0"><div class="software-copy"><h2>From Capture to Analysis</h2><p>Live preview helps the operator check positioning before capture. The captured image can then be reviewed, cropped, and analysed in the accompanying software.</p></div></article>
+        <article class="software-panel" data-software-panel style="order: 2"><div class="software-copy"><h2>Adjustable Measurements</h2><p>The software calculates multiple arch indices from the scanned images. A weighted score helps make an informed diagnosis. The operator can adjust measurement points and review each result against its reference range.</p></div></article>
+        <article class="software-panel" data-software-panel style="order: 4"><div class="software-copy"><h2>Colour Map</h2><p>The colour map displays differences in image intensity. Both feet remain visible together, with their measurements and classifications alongside the images.</p></div></article>
+        <article class="software-panel" data-software-panel style="order: 6"><div class="software-copy"><h2>Reports and Records</h2><p>Save a session with patient details and clinical notes, then generate a PDF report containing the foot images, measurements, and assessment summary. A reference guide accompanies the results.</p></div></article>
+      </div>
+    </div>
+    <div class="software-screens">
+      <figure class="software-screen" data-software-screen style="order: 1"><img src="images/podoscope/software/raw.png" width="3024" height="1964" alt="Software showing the captured foot image alongside computed arch indices" loading="lazy" decoding="async"></figure>
+      <figure class="software-screen" data-software-screen style="order: 3"><img src="images/podoscope/software/measurements.png" width="3024" height="1964" alt="Both feet with adjustable Chippaux-Smirak measurement lines and index results" loading="lazy" decoding="async"></figure>
+      <figure class="software-screen" data-software-screen style="order: 5"><img src="images/podoscope/software/comparison.png" width="3024" height="1964" alt="Side-by-side foot colour maps with computed measurements and a weighted classification summary" loading="lazy" decoding="async"></figure>
+      <figure class="software-screen" data-software-screen style="order: 7"><img src="images/podoscope/software/report.png" width="3024" height="1964" alt="Software report preview containing foot images, colour maps, and an index table" loading="lazy" decoding="async"></figure>
+    </div>
   </div>
 </section>
 <section class="podoscope-gallery" aria-labelledby="gallery-title">
   <h2 id="gallery-title">Gallery</h2>
-  <p class="gallery-subtitle">MVP development and testing. All intellectual property is owned by BITS Pilani, Goa Campus.</p>
+  <p class="gallery-subtitle">MVP development and testing. All IP is owned by BITS Pilani, Goa Campus.</p>
   <div class="prototype-grid">
-    <figure><img src="images/podoscope/lab-work.jpg" width="1440" height="960" alt="Working on the illuminated Podoscope prototype in the lab" loading="lazy" decoding="async" style="object-position: 55% 55%"></figure>
-    <figure><img src="images/podoscope/prototype-5624.jpg" width="1800" height="1350" alt="Three-quarter view of the illuminated working prototype" loading="lazy" decoding="async"></figure>
-    <figure><img src="images/podoscope/prototype-5625.jpg" width="1800" height="1350" alt="Working prototype showing the standing platform and mirror below" loading="lazy" decoding="async"></figure>
-    <figure><img src="images/podoscope/prototype-5621.jpg" width="1800" height="1350" alt="Feet on the illuminated platform with their reflections visible in the mirror" loading="lazy" decoding="async"></figure>
-    <figure><img src="images/podoscope/prototype-5622.jpg" width="1800" height="1350" alt="Top view of feet on the transparent platform above the camera and mirror" loading="lazy" decoding="async"></figure>
     <figure><img src="images/podoscope/prototype-5620.jpg" width="1350" height="1800" alt="Lower-body view of someone using the prototype with the analysis laptop nearby" loading="lazy" decoding="async" style="object-position: 50% 100%"></figure>
+    <figure><img src="images/podoscope/prototype-5622.jpg" width="1800" height="1350" alt="Top view of feet on the transparent platform above the camera and mirror" loading="lazy" decoding="async"></figure>
+    <figure><img src="images/podoscope/prototype-5621.jpg" width="1800" height="1350" alt="Feet on the illuminated platform with their reflections visible in the mirror" loading="lazy" decoding="async"></figure>
+    <figure><img src="images/podoscope/prototype-5625.jpg" width="1800" height="1350" alt="Working prototype showing the standing platform and mirror below" loading="lazy" decoding="async"></figure>
+    <figure><img src="images/podoscope/prototype-5624.jpg" width="1800" height="1350" alt="Three-quarter view of the illuminated working prototype" loading="lazy" decoding="async"></figure>
+    <figure><img src="images/podoscope/lab-work.jpg" width="1440" height="960" alt="Working on the illuminated Podoscope prototype in the lab" loading="lazy" decoding="async" style="object-position: 55% 55%"></figure>
   </div>
 </section>
 </main>
+<footer class="podoscope-contact" aria-label="Contact"><a href="mailto:koutilya.karamala2024@bitsdesign.edu.in" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg></a><a href="https://www.linkedin.com/in/koutilya-karamala-a9b812314/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 3a2.2 2.2 0 1 0 0 4.4 2.2 2.2 0 0 0 0-4.4ZM3.4 9h3.7v12H3.4V9Zm6 0H13v1.6c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.4 4.4 5.5V21h-3.7v-6c0-1.4 0-3.1-1.9-3.1s-2.2 1.5-2.2 3V21H9.4V9Z"/></svg></a><a href="https://x.com/zero1state" aria-label="X" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3L12 14.6 5.5 22H2.3l8.2-9.4L2.8 2h6.5l4.5 6.8L18.9 2Zm-1.1 18h1.7L8.3 3.9H6.5L17.8 20Z"/></svg></a></footer>
 <script src="podoscope-hero.js" defer></script><script src="podoscope-video.js" defer></script><script src="podoscope-software.js" defer></script><script src="podoscope-product.js" defer></script></body></html>

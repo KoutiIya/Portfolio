@@ -61,3 +61,5 @@ If choosing Cloudflare Pages for the static site later:
 The deployment folder must contain only website files. Deploy from a clean Git checkout so ignored local render masters are not uploaded. Pushing to GitHub alone does not configure Cloudflare or change DNS.
 
 Before enabling production deployment, verify the current Cloudflare project and domain configuration. Existing external integrations can deploy automatically when their configured branch changes.
+
+The design and software labels stay stationary while the content beneath changes. Counters and the render caption are omitted. The gallery uses the reversed photo order and the supplied IP ownership line, with contact icons at the bottom of the project page. The home-page thumbnail uses the first studio rotation frame.
