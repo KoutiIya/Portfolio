@@ -169,3 +169,27 @@
   .software-copy h2 { font-size: 24px; }
   .software-copy > p:last-child { font-size: 16px; }
 }
+
+/* Product rotation mirrors the software section, with the render on the left. */
+.product-track { position: relative; }
+.product-stage { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.8fr); gap: clamp(32px, 5vw, 80px); align-items: center; width: min(100% - 96px, 1360px); margin: 0 auto; padding: 64px 0; }
+.product-render { width: 100%; margin: 0; }
+.product-render img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; }
+.product-render figcaption { margin-top: 12px; color: var(--muted); font-size: 16px; }
+.product-description + .product-description { margin-top: 48px; }
+.product-label { margin: 0 0 24px; color: var(--muted); font-size: 16px; }
+.product-label span { margin-left: 16px; }
+.product-description h2 { margin: 0 0 24px; font-size: clamp(26px, 2.7vw, 40px); font-weight: 300; }
+.product-description > p:last-child { margin: 0; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.6; }
+.product-track[data-enhanced='true'] { height: 320svh; }
+.product-track[data-enhanced='true'] .product-stage { position: sticky; top: var(--hero-header-height); height: calc(100svh - var(--hero-header-height)); padding: 32px 0; }
+.product-track[data-enhanced='true'] .product-render { max-width: calc((100svh - var(--hero-header-height) - 104px) * 1.777778); justify-self: center; }
+.product-track[data-enhanced='true'] .product-descriptions { display: grid; }
+.product-track[data-enhanced='true'] .product-description { grid-area: 1 / 1; align-self: center; margin: 0; opacity: var(--product-opacity, 0); transform: translateY(var(--product-offset, 20px)); }
+@media (max-width: 900px) {
+  .product-stage { grid-template-columns: 1fr; align-content: center; gap: 24px; width: calc(100% - 40px); }
+  .product-description h2 { font-size: 28px; margin-bottom: 16px; }
+  .product-label { margin-bottom: 12px; }
+  .product-description > p:last-child { font-size: 17px; line-height: 1.5; }
+  .product-track[data-enhanced='true'] .product-render { max-width: calc((100svh - var(--hero-header-height) - 350px) * 1.777778); }
+}
