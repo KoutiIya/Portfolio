@@ -63,3 +63,5 @@ The deployment folder must contain only website files. Deploy from a clean Git c
 Before enabling production deployment, verify the current Cloudflare project and domain configuration. Existing external integrations can deploy automatically when their configured branch changes.
 
 The design and software labels stay stationary while the content beneath changes. Counters and the render caption are omitted. The gallery uses the reversed photo order and the supplied IP ownership line, with contact icons at the bottom of the project page. The home-page thumbnail uses the first studio rotation frame.
+
+The project includes an MVP outcome and remaining limitations before the gallery. Gallery thumbnails open a modal carousel with uncropped images, previous and next controls, arrow-key navigation, Escape to close, and restored keyboard focus. The research proposal stays in ignored local scratch work for content discussion.
