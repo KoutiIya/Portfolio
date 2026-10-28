@@ -17,11 +17,13 @@
 - Avoid all-caps styling, em dashes, the U+2022 character, and literal plus or slash characters in visitor-facing prose. URL paths and code syntax are exempt.
 - Write plain, factual copy. Avoid slogans, unsupported claims, invented metrics, and filler.
 - Keep social icons ordered Email, LinkedIn, then X, with balanced visual sizes and usable hit areas.
+- Serve Barlow locally from `Portfolio/fonts/barlow/`; keep its OFL licence.
 - Aim for WCAG 2.2 AA: contrast, keyboard access, visible focus, semantic structure, responsive reflow, and reduced-motion support. Check desktop first, then phone layouts.
 
 ## Podoscope
 
 - The project page contains the scroll-controlled hero, a usage demonstration, a scroll-controlled studio rotation with product descriptions, a scroll-controlled software screenshot presentation, and a prototype gallery. Software screenshots switch immediately while only their accompanying text fades; gallery images use subject-focused 4:3 crops. Do not restore other earlier case-study sections without a request.
+- On phones, use native vertical flow for product and software content, with paired text and screenshots. Disable desktop pinning, inertia, and the video hold. Keep desktop presentations intact; use responsive preview images and full-size expansion.
 - Scroll position controls the frame and subtitle reveal directly in both directions. The first frame holds at the top. Do not introduce timed autoplay for the hero or scroll hijacking.
 - Crop around the right third of the images, with the product focal point near 78 percent of source width. Prioritise desktop composition for now.
 - The app has four indices and semi-automatic measurement adjustment. Its colour map represents image intensity, not calibrated pressure.

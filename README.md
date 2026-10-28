@@ -69,3 +69,9 @@ The project includes an MVP outcome and remaining limitations before the gallery
 The shared motion helper eases visual progress with a 70 millisecond time constant and a finite settling threshold. It does not intercept wheel, touch, or keyboard scrolling, and is bypassed for reduced motion. The introduction identifies the intended practitioner and recordable assessment output. Colour-map copy describes image intensity and contact patterns, matching the backend implementation.
 
 The demonstration video stays pinned for an additional 65 percent of the viewport height, capped at 560 pixels of scroll distance. The hold is disabled for reduced motion and viewports below 600 pixels tall. Playback remains independent of scroll position.
+
+## Phone layout
+
+At phone widths, and in short phone landscape viewports, the product and software sections use ordinary document flow. Each software image starts in the markup next to its explanation; only desktop moves images into the shared sticky screen. Phone scrolling does not use the desktop inertia or demonstration hold. The shorter portrait hero keeps its scroll-controlled frames, with a smaller decoded-frame cache; landscape uses a still hero.
+
+Responsive WebP image variants are used for screenshots and gallery thumbnails. Full-resolution screenshots and gallery photos open in separate groups within the image viewer. On phones, controls sit below the image and closing the viewer restores the reading position. Barlow is served locally under its SIL Open Font License, without Google Fonts requests.

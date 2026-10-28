@@ -1,11 +1,12 @@
 (() => {
   'use strict';
   const states = new WeakMap();
+  const compact = matchMedia('(max-width: 700px), (max-width: 900px) and (max-height: 500px)');
   // Ease the visual progress, never the document scroll or input events.
   window.podoscopeEaseProgress = (element, target) => {
     const now = performance.now();
     let state = states.get(element);
-    if (!state || target <= 0 || target >= 1 || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (compact.matches || !state || target <= 0 || target >= 1 || matchMedia('(prefers-reduced-motion: reduce)').matches) {
       state = { value: target, time: now };
       states.set(element, state);
       return { value: target, settled: true };

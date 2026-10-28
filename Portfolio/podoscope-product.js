@@ -7,6 +7,7 @@
   const descriptions = [...track.querySelectorAll('[data-product-description]')];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const shortScreen = matchMedia('(max-height: 600px)');
+  const compact = matchMedia('(max-width: 700px), (max-width: 900px) and (max-height: 500px)');
   const cache = new Map();
   const loading = new Set();
   const failed = new Set();
@@ -15,6 +16,7 @@
   let pending = false;
   let queue = [];
   let enabled = false;
+  let previousEnabled;
   const count = 72;
   const clamp = value => Math.max(0, Math.min(1, value));
   const source = index => `images/podoscope/studio-round/${String(index + 1).padStart(4, '0')}.webp`;
@@ -49,11 +51,13 @@
   }
   function draw() {
     pending = false;
-    enabled = !reducedMotion.matches && !shortScreen.matches;
+    enabled = !reducedMotion.matches && !shortScreen.matches && !compact.matches;
+    if (!enabled && previousEnabled === false) return;
+    previousEnabled = enabled;
     track.dataset.enhanced = String(enabled);
     if (!enabled) {
       descriptions.forEach(description => description.removeAttribute('aria-hidden'));
-      display.src = source(0);
+      if (shown !== 0) display.src = source(0);
       shown = 0;
       queue = [];
       return;
@@ -95,5 +99,6 @@
   addEventListener('resize', schedule, { passive: true });
   reducedMotion.addEventListener('change', schedule);
   shortScreen.addEventListener('change', schedule);
+  compact.addEventListener('change', schedule);
   draw();
 })();
