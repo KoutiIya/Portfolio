@@ -30,7 +30,10 @@
     }
     const top = parseFloat(getComputedStyle(stage).top) || 0;
     const distance = Math.max(1, track.offsetHeight - stage.offsetHeight);
-    const progress = clamp((top - track.getBoundingClientRect().top) / distance);
+    const rawProgress = clamp((top - track.getBoundingClientRect().top) / distance);
+    const eased = window.podoscopeEaseProgress(track, rawProgress);
+    const progress = eased.value;
+    if (!eased.settled) schedule();
     // Each view holds, then fades out before the next fades upward into place.
     // Avoid overlapping readable text, including when scrolling stops midway.
     const position = Math.min(panels.length - 1, progress * panels.length);

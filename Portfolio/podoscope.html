@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><meta name="description" content="A smart podoscope for foot imaging and semi-automatic arch index analysis. A design project by Koutilya Karamala."><title>Podoscope | Koutilya Karamala</title><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="podoscope-hero.css"></head><body class="sequence-page"><a class="skip-link" href="#main-content">Skip to content</a><header><a class="site-name" href="index.html">Koutilya Karamala</a><nav aria-label="Main navigation"><a href="index.html" aria-current="true">Design</a><a href="content.html">Content</a><a href="music.html">Music</a><a href="about.html">About</a></nav></header><main id="main-content" class="podoscope-page" tabindex="-1" aria-labelledby="project-title">
 <section class="sequence-track" data-sequence data-static="true" aria-label="Product introduction">
-  <p class="sr-only">Scroll down to advance the product render and scroll up to reverse it. The sequence holds still when scrolling stops.</p>
+  <p class="sr-only">Scroll down to advance the product render and scroll up to reverse it. The sequence settles gently when scrolling stops.</p>
   <div class="sequence-stage">
     <picture class="sequence-poster">
       <source media="(max-width: 900px)" srcset="images/podoscope/hero/mobile-0001.webp">
@@ -18,7 +18,8 @@
 <section class="podoscope-demonstration" aria-label="Purpose and demonstration">
   <div class="demonstration-intro">
     <p>This project explored how foot imaging and computed measurements to assess high and low arches, bunions, and other foot conditions could be provided in an easy to use and affordable form factor.</p>
-    <p>Designed for and prototyped at BIOMADE Lab at BITS Pilani Goa Campus</p>
+    <p class="demonstration-audience">Designed for podiatrists and other foot-care practitioners, it provides a recorded image and arch measurements to support assessment and create a record of the session.</p>
+    <p class="demonstration-credit">Designed for and prototyped at BIOMADE Lab at BITS Pilani Goa Campus</p>
   </div>
   <div class="demonstration-player" data-demonstration>
     <video controls muted playsinline preload="metadata" width="2400" height="1350" poster="images/podoscope/demonstration-poster.jpg" aria-label="Demonstration of a patient using the Podoscope" aria-describedby="demonstration-description">
@@ -31,25 +32,13 @@
 </section>
 
 <section class="podoscope-research" aria-labelledby="research-title">
-  <h2 id="research-title">Design Context</h2>
-  <p>Commercial digital scanners offered imaging, measurements, and reporting, but their cost was a constraint. Low cost academic prototypes demonstrated the imaging approach. This project focused on bringing those capabilities together with industrial design, ergonomics, and an integrated reporting workflow.</p>
-  <div class="research-comparison">
-    <table>
-      <caption class="sr-only">Approaches considered during the project</caption>
-      <thead><tr><th scope="col">Approach</th><th scope="col">Focus</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Mirror-based podoscopes</th><td>Illuminated visual inspection of the soles.</td></tr>
-        <tr><th scope="row">Digital footprint scanners</th><td>Recorded images, measurement tools, and software reports.</td></tr>
-        <tr><th scope="row">Academic prototypes</th><td>Low cost imaging and computed foot measurements.</td></tr>
-      </tbody>
-    </table>
+  <h2 id="research-title">Design Priorities</h2>
+  <p>The aim was to bring foot imaging and arch measurements together in an affordable device for clinical use. Research and the existing lab prototype informed three priorities.</p>
+  <div class="research-priorities">
+    <div><h3>Affordable Hardware</h3><p>Use accessible components to combine image capture, measurements, and reporting without the cost of a commercial digital scanner.</p></div>
+    <div><h3>A Lower Platform</h3><p>Reduce the step height of the earlier prototype, making it easier for patients who might otherwise need assistance to get onto the device.</p></div>
+    <div><h3>An Integrated Workflow</h3><p>Bring image review, adjustable measurements, and report generation into one software workflow for the practitioner.</p></div>
   </div>
-  <p>The existing lab prototype also presented a practical challenge: its height made it difficult for some users to step onto the platform without assistance. The goal was a lower platform combining clear imaging, semi-automatic measurement, and reporting in an affordable, easy to use device.</p>
-  <details class="research-references"><summary>Selected references</summary><ul>
-    <li><a href="https://www.sensormedica.com/download/DataSheet/Podoscan%202D.pdf" target="_blank" rel="noopener noreferrer">Sensor Medica Podoscan 2D datasheet</a></li>
-    <li><a href="https://www.csdispositivi.it/en/products/led-podoscope" target="_blank" rel="noopener noreferrer">CS Dispositivi LED podoscope</a></li>
-    <li><a href="https://pen.ius.edu.ba/index.php/pen/article/view/152/139" target="_blank" rel="noopener noreferrer">A low-cost podoscope for extracting morphological features of the foot</a></li>
-  </ul></details>
 </section>
 
 <section class="product-track" data-product-round aria-label="Product design">
@@ -62,7 +51,7 @@
       <div class="product-description-stack">
       <article class="product-description" data-product-description>
         <h2>Reducing the Step Height</h2>
-        <p>The earlier prototype was tall and difficult to step onto without assistance. The redesign prioritised a lower platform to make stepping onto the device easier.</p>
+        <p>An earlier prototype was tall, bulky, and difficult to step on to without assistance. The redesign prioritised a lower platform to make stepping onto the device easier.</p>
       </article>
       <article class="product-description" data-product-description>
         <h2>Capturing Both Feet</h2>
@@ -84,7 +73,7 @@
       <div class="software-text-stack">
         <article class="software-panel" data-software-panel style="order: 0"><div class="software-copy"><h2>From Capture to Analysis</h2><p>Live preview helps the operator check positioning before capture. The captured image can then be reviewed, cropped, and analysed in the accompanying software.</p></div></article>
         <article class="software-panel" data-software-panel style="order: 2"><div class="software-copy"><h2>Adjustable Measurements</h2><p>The software calculates multiple arch indices from the scanned images. A weighted score helps make an informed diagnosis. The operator can adjust measurement points and review each result against its reference range.</p></div></article>
-        <article class="software-panel" data-software-panel style="order: 4"><div class="software-copy"><h2>Colour Map</h2><p>The colour map displays differences in image intensity. Both feet remain visible together, with their measurements and classifications alongside the images.</p></div></article>
+        <article class="software-panel" data-software-panel style="order: 4"><div class="software-copy"><h2>Colour Map</h2><p>The colour map displays differences in image intensity across the footprint, providing another way for the podiatrist to inspect the pattern of contact under body weight.</p></div></article>
         <article class="software-panel" data-software-panel style="order: 6"><div class="software-copy"><h2>Reports and Records</h2><p>Save a session with patient details and clinical notes, then generate a PDF report containing the foot images, measurements, and assessment summary. A reference guide accompanies the results.</p></div></article>
       </div>
     </div>
@@ -108,8 +97,6 @@
     <figure><a href="images/podoscope/prototype-5620.jpg" data-gallery-open aria-label="Expand gallery image"><img src="images/podoscope/prototype-5620.jpg" width="1350" height="1800" alt="Podoscope setup with someone standing on the platform and the analysis laptop nearby" loading="lazy" decoding="async" style="object-position: 50% 100%"></a></figure>
     <figure><a href="images/podoscope/prototype-5622.jpg" data-gallery-open aria-label="Expand gallery image"><img src="images/podoscope/prototype-5622.jpg" width="1800" height="1350" alt="Top view of feet on the transparent platform above the camera and mirror" loading="lazy" decoding="async"></a></figure>
     <figure><a href="images/podoscope/prototype-5621.jpg" data-gallery-open aria-label="Expand gallery image"><img src="images/podoscope/prototype-5621.jpg" width="1800" height="1350" alt="Feet on the illuminated platform with their reflections visible in the mirror" loading="lazy" decoding="async"></a></figure>
-    <figure><a href="images/podoscope/prototype-5625.jpg" data-gallery-open aria-label="Expand gallery image"><img src="images/podoscope/prototype-5625.jpg" width="1800" height="1350" alt="Working prototype showing the standing platform and mirror below" loading="lazy" decoding="async"></a></figure>
-    <figure><a href="images/podoscope/prototype-5624.jpg" data-gallery-open aria-label="Expand gallery image"><img src="images/podoscope/prototype-5624.jpg" width="1800" height="1350" alt="Three-quarter view of the illuminated working prototype" loading="lazy" decoding="async"></a></figure>
     <figure><a href="images/podoscope/lab-work.jpg" data-gallery-open aria-label="Expand gallery image"><img src="images/podoscope/lab-work.jpg" width="1440" height="960" alt="Working on the illuminated Podoscope prototype in the lab" loading="lazy" decoding="async" style="object-position: 55% 55%"></a></figure>
   </div>
 </section>
@@ -125,4 +112,4 @@
   </div>
   <p class="gallery-viewer-caption" data-gallery-caption aria-live="polite" aria-atomic="true"></p>
 </dialog>
-<script src="podoscope-hero.js" defer></script><script src="podoscope-video.js" defer></script><script src="podoscope-software.js" defer></script><script src="podoscope-product.js" defer></script><script src="podoscope-gallery.js" defer></script></body></html>
+<script src="podoscope-motion.js" defer></script><script src="podoscope-hero.js" defer></script><script src="podoscope-video.js" defer></script><script src="podoscope-software.js" defer></script><script src="podoscope-product.js" defer></script><script src="podoscope-gallery.js" defer></script></body></html>

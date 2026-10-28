@@ -136,7 +136,10 @@
     if (!manifest || staticMode()) return;
     const headerHeight = parseFloat(getComputedStyle(document.body).getPropertyValue('--hero-header-height'));
     const distance = Math.max(1, track.offsetHeight - stage.offsetHeight);
-    const progress = Math.max(0, Math.min(1, (headerHeight - track.getBoundingClientRect().top) / distance));
+    const rawProgress = Math.max(0, Math.min(1, (headerHeight - track.getBoundingClientRect().top) / distance));
+    const eased = window.podoscopeEaseProgress(track, rawProgress);
+    const progress = eased.value;
+    if (!eased.settled) scheduleUpdate();
     revealDescription(progress);
     target = Math.round(progress * (frames.length - 1));
     if (target !== previousTarget) direction = target > previousTarget ? 1 : -1;
@@ -144,7 +147,7 @@
     track.dataset.targetFrame = String(target + 1);
     if (cache.has(target)) paint(target);
     // Hold the last image until the exact requested frame has decoded.
-    // Frames never advance on a timer or continue after scrolling stops.
+    // A short settling ease follows scroll input; there is no timed playback.
     prefetch();
   }
 

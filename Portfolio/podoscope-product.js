@@ -60,7 +60,10 @@
     }
     const top = parseFloat(getComputedStyle(stage).top) || 0;
     const bounds = track.getBoundingClientRect();
-    const progress = clamp((top - bounds.top) / Math.max(1, track.offsetHeight - stage.offsetHeight));
+    const rawProgress = clamp((top - bounds.top) / Math.max(1, track.offsetHeight - stage.offsetHeight));
+    const eased = window.podoscopeEaseProgress(track, rawProgress);
+    const progress = eased.value;
+    if (!eased.settled) schedule();
     target = Math.round(progress * (count - 1));
     show(target);
     // Only fetch nearby frames when the section approaches the viewport.
