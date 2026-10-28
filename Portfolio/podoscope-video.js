@@ -11,6 +11,17 @@
     Replay: button.querySelector('[data-control-replay]')
   };
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const hold = player.closest('[data-demonstration-hold]');
+  function sizeHold() {
+    if (!hold) return;
+    const enabled = !reducedMotion.matches && innerHeight >= 600;
+    hold.dataset.enabled = String(enabled);
+    hold.style.setProperty('--demo-hold-height', `${player.offsetHeight + Math.min(innerHeight * 0.65, 560)}px`);
+  }
+  addEventListener('resize', sizeHold, { passive: true });
+  reducedMotion.addEventListener('change', sizeHold);
+  new ResizeObserver(sizeHold).observe(player);
+  sizeHold();
   let visible = false;
   let manuallyPaused = false;
 

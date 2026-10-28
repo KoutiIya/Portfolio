@@ -254,3 +254,9 @@
   .podoscope-research { width: calc(100% - 40px); }
   .podoscope-research > p { font-size: 18px; }
 }
+
+/* A short extra scroll distance keeps the demonstration in view. */
+.demonstration-hold { position: relative; margin: var(--demonstration-gap) 0; }
+.demonstration-hold .demonstration-player { margin: 0 auto; }
+.demonstration-hold[data-enabled='true'] { height: var(--demo-hold-height); }
+.demonstration-hold[data-enabled='true'] .demonstration-player { position: sticky; top: calc(var(--hero-header-height) + 24px); }
