@@ -5,15 +5,26 @@
   const stage = track.querySelector('.software-stage');
   const panels = [...track.querySelectorAll('[data-software-panel]')];
   const screens = [...track.querySelectorAll('[data-software-screen]')];
+  const screenContainer = track.querySelector('.software-screens');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const shortScreen = matchMedia('(max-height: 600px)');
+  const compact = matchMedia('(max-width: 700px), (max-width: 900px) and (max-height: 500px)');
   let pending = false;
+  let previousEnhanced;
   const clamp = value => Math.max(0, Math.min(1, value));
 
   function draw() {
     pending = false;
-    // Ordinary document flow is the fallback for reduced motion and short screens.
-    const enhanced = !reducedMotion.matches && !shortScreen.matches;
+    // Native markup keeps each image with its explanation, without a phone layout shift.
+    const enhanced = !reducedMotion.matches && !shortScreen.matches && !compact.matches;
+    if (!enhanced && previousEnhanced === false) return;
+    previousEnhanced = enhanced;
+    screens.forEach((screen, index) => {
+      const parent = enhanced ? screenContainer : panels[index];
+      if (screen.parentElement !== parent) parent.append(screen);
+      const image = screen.querySelector('img');
+      if (enhanced && image.loading !== 'eager') image.loading = 'eager';
+    });
     track.dataset.enhanced = String(enhanced);
     if (!enhanced) {
       panels.forEach(panel => {
@@ -60,5 +71,6 @@
   addEventListener('resize', schedule, { passive: true });
   reducedMotion.addEventListener('change', schedule);
   shortScreen.addEventListener('change', schedule);
+  compact.addEventListener('change', schedule);
   draw();
 })();

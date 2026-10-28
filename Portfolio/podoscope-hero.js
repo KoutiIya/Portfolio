@@ -8,6 +8,7 @@
   const context = canvas.getContext('2d', { alpha: false });
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 900px)');
+  const landscapePhone = matchMedia('(max-width: 900px) and (max-height: 500px)');
   const cache = new Map();
   const loading = new Set();
   const failed = new Set();
@@ -23,8 +24,8 @@
   let sizeDirty = true;
   let announced = false;
   const concurrency = 3;
-  const cacheLimit = () => mobile.matches ? 14 : 10;
-  const staticMode = () => reducedMotion.matches || !context;
+  const cacheLimit = () => mobile.matches ? 6 : 10;
+  const staticMode = () => reducedMotion.matches || landscapePhone.matches || !context;
 
   function framing(imageWidth, imageHeight) {
     const width = stage.clientWidth;
@@ -122,7 +123,7 @@
 
   function prefetch() {
     const wanted = [target];
-    const radius = mobile.matches ? 5 : 3;
+    const radius = mobile.matches ? 2 : 3;
     for (let step = 1; step <= radius; step++) {
       wanted.push(target + step * direction, target - step * direction);
     }
@@ -180,6 +181,7 @@
   addEventListener('resize', () => { positionPoster(); sizeDirty = true; scheduleUpdate(); }, { passive: true });
   new ResizeObserver(() => { positionPoster(); sizeDirty = true; scheduleUpdate(); }).observe(stage);
   mobile.addEventListener('change', selectFrames);
+  landscapePhone.addEventListener('change', selectFrames);
   reducedMotion.addEventListener('change', selectFrames);
   track.dataset.static = String(staticMode());
   track.dataset.enhanced = String(!staticMode());

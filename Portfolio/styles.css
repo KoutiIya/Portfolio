@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&display=swap');
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 300; font-display: swap; src: url('fonts/barlow/barlow-300.ttf') format('truetype'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/barlow/barlow-400.ttf') format('truetype'); }
+@font-face { font-family: 'Barlow'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/barlow/barlow-500.ttf') format('truetype'); }
 
 :root {
   color-scheme: dark;
@@ -283,3 +285,12 @@ footer a[aria-label='X'] svg { width: 16px; height: 16px; }
 /* Frame the product itself inside the compact homepage thumbnail. */
 .project-horizontal .thumbnail { position: relative; }
 .project-horizontal .thumbnail img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+@media (max-width: 700px) {
+  html { scrollbar-gutter: auto; }
+  body { -webkit-text-size-adjust: 100%; }
+  .project-horizontal { grid-template-columns: 1fr; padding: 20px; gap: 24px; }
+  .project-horizontal .thumbnail { width: 100%; aspect-ratio: 16 / 9; }
+  .project-horizontal .project-subtitle { font-size: 16px; }
+  textarea { font-size: 18px; }
+}
