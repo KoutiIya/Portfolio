@@ -46,25 +46,25 @@ The Podoscope page contains a scroll-controlled 48-frame hero. Scroll position s
 
 Keep `main` as the stable, reviewed version. Commit useful checkpoints rather than waiting for the entire portfolio to be finished. A pushed commit provides a remote backup of tracked files.
 
-## Future Cloudflare deployment
+## Cloudflare deployment
 
-An existing Cloudflare Workers integration is connected to the repository and posts build checks. Its deployment settings are managed separately; this repository setup does not alter them.
+The existing Cloudflare Workers project is named `portfolio` and is connected to this GitHub repository. `wrangler.toml` defines static assets and the custom domains `koutilya.com` and `www.koutilya.com`.
 
-If choosing Cloudflare Pages for the static site later:
+Deploy command: `npx wrangler deploy` from the repository root. Wrangler runs `python3 scripts/prepare_deploy.py` first. That script copies only Git-tracked website files into the ignored `dist/` directory, excluding local app source, raw renders, scratch files, and untracked files. Do not deploy the working `Portfolio/` directory directly.
 
-- Framework preset: None.
-- Build command: leave empty.
-- Output directory: `Portfolio`, relative to the repository root.
-- Production branch: `main`.
-- Use branch previews to review changes before production.
+Run a local packaging check without publishing:
 
-The deployment folder must contain only website files. Deploy from a clean Git checkout so ignored local render masters are not uploaded. Pushing to GitHub alone does not configure Cloudflare or change DNS.
+```sh
+python3 scripts/prepare_deploy.py
+wrangler deploy --dry-run
+```
 
-Before enabling production deployment, verify the current Cloudflare project and domain configuration. Existing external integrations can deploy automatically when their configured branch changes.
+Production should follow the reviewed `main` branch. Non-production builds should use `npx wrangler versions upload` so branch pushes create review versions rather than replace the domain. Existing Cloudflare build settings are configured in the dashboard. Cloudflare account authentication or the connected build integration is required for actual publication.
+
 
 The design and software labels stay stationary while the content beneath changes. Counters and the render caption are omitted. The gallery uses the reversed photo order and the supplied IP ownership line, with contact icons at the bottom of the project page. The home-page thumbnail uses the first studio rotation frame.
 
-The project includes an MVP outcome and remaining limitations before the gallery. Gallery thumbnails open a modal carousel with uncropped images, previous and next controls, arrow-key navigation, Escape to close, and restored keyboard focus. Design Priorities appears before the product rotation, with three unboxed explanations of affordability, platform height, and the software workflow. The earlier comparison table and references were removed. The full research document and working proposal remain local.
+The project includes an MVP outcome and remaining limitations before the gallery. Gallery thumbnails open a modal carousel with uncropped images, previous and next controls, arrow-key navigation, Escape to close, and restored keyboard focus. Image descriptions and position counts are announced to assistive technology without visible captions. Design Priorities appears before the product rotation, with three unboxed explanations of affordability, platform height, and the software workflow. The earlier comparison table and references were removed. The full research document and working proposal remain local.
 
 The shared motion helper eases visual progress with a 70 millisecond time constant and a finite settling threshold. It does not intercept wheel, touch, or keyboard scrolling, and is bypassed for reduced motion. The introduction identifies the intended practitioner and recordable assessment output. Colour-map copy describes image intensity and contact patterns, matching the backend implementation.
 

@@ -41,3 +41,6 @@ __pycache__/
 
 # Separate prototype software is not part of the public portfolio
 /Portfolio/Podoscope-App/
+
+# Generated public deployment package
+/dist/

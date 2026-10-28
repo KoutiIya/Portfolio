@@ -1,0 +1,16 @@
+name = "portfolio"
+compatibility_date = "2026-10-28"
+
+[build]
+command = "python3 scripts/prepare_deploy.py"
+
+[assets]
+directory = "./dist"
+
+[[routes]]
+pattern = "koutilya.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.koutilya.com"
+custom_domain = true
