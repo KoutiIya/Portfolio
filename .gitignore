@@ -1,0 +1,46 @@
+# Machine and local agent state
+.DS_Store
+.AppleDouble
+/.claude/
+/.claire/
+/.codex/
+/.wrangler/
+
+# Secrets and runtime data
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Dependencies and generated Python files
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Scratch work and the separate project
+/work/
+/claudinder/
+
+# Original render masters stay local; compressed website assets are tracked
+/Portfolio/podo port/
+*.blend
+*.blend1
+*.3dm
+*.step
+*.stp
+
+# Temporary browser review pages
+/Portfolio/__*review*.html
+
+# Separate prototype software is not part of the public portfolio
+/Portfolio/Podoscope-App/
+
+# Generated public deployment package
+/dist/
