@@ -14,6 +14,7 @@
 - Default to neutral dark grey, Barlow throughout, pale blue accents, and sharp corners. Light render backgrounds with black text are intentional on the Podoscope hero.
 - Navigation links go to separate Design, Content, Music, and About pages. Design is home. The full name at top left links home.
 - Use sentence case for body copy and title case for headings. The project name is Podoscope.
+- Never use emojis in the website, documentation, or communication.
 - Avoid all-caps styling, em dashes, the U+2022 character, and literal plus or slash characters in visitor-facing prose. URL paths and code syntax are exempt.
 - Write plain, factual copy. Avoid slogans, unsupported claims, invented metrics, and filler.
 - Keep social icons ordered Email, LinkedIn, then X, with balanced visual sizes and usable hit areas.
@@ -23,7 +24,7 @@
 ## Podoscope
 
 - The project page contains the scroll-controlled hero, a usage demonstration, a scroll-controlled studio rotation with product descriptions, a scroll-controlled software screenshot presentation, and a prototype gallery. Software screenshots switch immediately while only their accompanying text fades; gallery images use subject-focused 4:3 crops. Do not restore other earlier case-study sections without a request.
-- On phones, use native vertical flow for product and software content, with paired text and screenshots. Disable desktop pinning, inertia, and the video hold. Keep desktop presentations intact; use responsive preview images and full-size expansion.
+- On portrait phones, retain scroll-controlled hero and product rotation and the shared software presentation with text-only fades. Fit each presentation inside the viewport. Use ordinary flow on short screens and for reduced motion; disable mobile inertia and the video hold. Use responsive preview images and full-size expansion.
 - Scroll position controls the frame and subtitle reveal directly in both directions. The first frame holds at the top. Do not introduce timed autoplay for the hero or scroll hijacking.
 - Crop around the right third of the images, with the product focal point near 78 percent of source width. Prioritise desktop composition for now.
 - The app has four indices and semi-automatic measurement adjustment. Its colour map represents image intensity, not calibrated pressure.

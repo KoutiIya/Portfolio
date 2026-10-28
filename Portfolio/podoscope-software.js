@@ -8,18 +8,18 @@
   const screenContainer = track.querySelector('.software-screens');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const shortScreen = matchMedia('(max-height: 600px)');
-  const compact = matchMedia('(max-width: 700px), (max-width: 900px) and (max-height: 500px)');
   let pending = false;
   let previousEnhanced;
   const clamp = value => Math.max(0, Math.min(1, value));
 
   function draw() {
     pending = false;
-    // Native markup keeps each image with its explanation, without a phone layout shift.
-    const enhanced = !reducedMotion.matches && !shortScreen.matches && !compact.matches;
+    // Stack the text and shared screen on portrait phones; keep short-screen fallback.
+    const enhanced = !reducedMotion.matches && !shortScreen.matches;
     if (!enhanced && previousEnhanced === false) return;
+    const modeChanged = previousEnhanced !== enhanced;
     previousEnhanced = enhanced;
-    screens.forEach((screen, index) => {
+    if (modeChanged) screens.forEach((screen, index) => {
       const parent = enhanced ? screenContainer : panels[index];
       if (screen.parentElement !== parent) parent.append(screen);
       const image = screen.querySelector('img');
@@ -71,6 +71,5 @@
   addEventListener('resize', schedule, { passive: true });
   reducedMotion.addEventListener('change', schedule);
   shortScreen.addEventListener('change', schedule);
-  compact.addEventListener('change', schedule);
   draw();
 })();

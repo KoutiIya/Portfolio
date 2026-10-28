@@ -72,6 +72,8 @@ The demonstration video stays pinned for an additional 65 percent of the viewpor
 
 ## Phone layout
 
-At phone widths, and in short phone landscape viewports, the product and software sections use ordinary document flow. Each software image starts in the markup next to its explanation; only desktop moves images into the shared sticky screen. Phone scrolling does not use the desktop inertia or demonstration hold. The shorter portrait hero keeps its scroll-controlled frames, with a smaller decoded-frame cache; landscape uses a still hero.
+Portrait phones retain the scroll-controlled hero, studio rotation, and shared software screen with text-only fades. The studio render and its descriptions are stacked to fit the viewport. Short screens and reduced-motion settings use ordinary flow for the studio and software sections. Phone scrolling does not use desktop inertia or the demonstration hold.
+
+The shared frame loader preloads compressed sequence data and decodes a bounded window around the current scroll position. It paints the nearest decoded frame while the exact target is preparing, avoiding frozen output during rapid scrolling. Studio frames have smaller phone variants; originals remain intact.
 
 Responsive WebP image variants are used for screenshots and gallery thumbnails. Full-resolution screenshots and gallery photos open in separate groups within the image viewer. On phones, controls sit below the image and closing the viewer restores the reading position. Barlow is served locally under its SIL Open Font License, without Google Fonts requests.
