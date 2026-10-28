@@ -8,24 +8,14 @@
   const context = canvas.getContext('2d', { alpha: false });
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 900px)');
-  const landscapePhone = matchMedia('(max-width: 900px) and (max-height: 500px)');
-  const cache = new Map();
-  const loading = new Set();
-  const failed = new Set();
   let manifest;
-  let frames = [];
-  let queue = [];
-  let generation = 0;
+  let sequence;
   let target = 0;
   let lastDrawn = -1;
-  let previousTarget = 0;
-  let direction = 1;
   let tickPending = false;
   let sizeDirty = true;
   let announced = false;
-  const concurrency = 3;
-  const cacheLimit = () => mobile.matches ? 6 : 10;
-  const staticMode = () => reducedMotion.matches || landscapePhone.matches || !context;
+  const staticMode = () => reducedMotion.matches || !context;
 
   function framing(imageWidth, imageHeight) {
     const width = stage.clientWidth;
@@ -58,20 +48,12 @@
     track.style.setProperty('--description-offset', `${((1 - amount) * 12).toFixed(2)}px`);
   }
 
-  function evict() {
-    while (cache.size > cacheLimit()) {
-      const farthest = [...cache.keys()].sort((a, b) => Math.abs(b - target) - Math.abs(a - target))[0];
-      cache.delete(farthest);
-    }
-  }
-
-  function paint(index) {
-    const image = cache.get(index);
+  function paint(index, image) {
     if (!image || (index === lastDrawn && !sizeDirty)) return;
     const width = stage.clientWidth;
     const height = stage.clientHeight;
     if (!width || !height) return;
-    const pixelRatio = Math.min(devicePixelRatio || 1, mobile.matches ? 2 : 1.5);
+    const pixelRatio = Math.min(devicePixelRatio || 1, 1.5);
     const backingWidth = Math.round(width * pixelRatio);
     const backingHeight = Math.round(height * pixelRatio);
     if (canvas.width !== backingWidth || canvas.height !== backingHeight) {
@@ -93,63 +75,21 @@
     }
   }
 
-  function pump() {
-    while (loading.size < concurrency && queue.length) {
-      const index = queue.shift();
-      if (cache.has(index) || loading.has(index) || failed.has(index)) continue;
-      const epoch = generation;
-      const image = new Image();
-      image.decoding = 'async';
-      loading.add(index);
-      image.onload = async () => {
-        try { await image.decode(); } catch (_) { /* Loaded images can still draw. */ }
-        if (epoch !== generation) return;
-        loading.delete(index);
-        cache.set(index, image);
-        evict();
-        scheduleUpdate();
-        pump();
-      };
-      image.onerror = () => {
-        if (epoch !== generation) return;
-        loading.delete(index);
-        failed.add(index);
-        if (index === target) status.textContent = 'Some frames could not load. The last available image is shown.';
-        pump();
-      };
-      image.src = frames[index];
-    }
-  }
-
-  function prefetch() {
-    const wanted = [target];
-    const radius = mobile.matches ? 2 : 3;
-    for (let step = 1; step <= radius; step++) {
-      wanted.push(target + step * direction, target - step * direction);
-    }
-    queue = wanted.filter(index => index >= 0 && index < frames.length
-      && !cache.has(index) && !loading.has(index) && !failed.has(index));
-    pump();
-  }
-
   function update() {
     tickPending = false;
-    if (!manifest || staticMode()) return;
-    const headerHeight = parseFloat(getComputedStyle(document.body).getPropertyValue('--hero-header-height'));
+    if (!sequence || staticMode()) return;
+    const headerHeight = parseFloat(getComputedStyle(document.body).getPropertyValue('--hero-header-height')) || 0;
     const distance = Math.max(1, track.offsetHeight - stage.offsetHeight);
     const rawProgress = Math.max(0, Math.min(1, (headerHeight - track.getBoundingClientRect().top) / distance));
     const eased = window.podoscopeEaseProgress(track, rawProgress);
     const progress = eased.value;
     if (!eased.settled) scheduleUpdate();
     revealDescription(progress);
-    target = Math.round(progress * (frames.length - 1));
-    if (target !== previousTarget) direction = target > previousTarget ? 1 : -1;
-    previousTarget = target;
+    target = Math.round(progress * (sequence.urls.length - 1));
     track.dataset.targetFrame = String(target + 1);
-    if (cache.has(target)) paint(target);
-    // Hold the last image until the exact requested frame has decoded.
-    // A short settling ease follows scroll input; there is no timed playback.
-    prefetch();
+    sequence.request(target);
+    const available = sequence.nearest(target);
+    if (available) paint(available.index, available.image);
   }
 
   function scheduleUpdate() {
@@ -160,9 +100,8 @@
 
   function selectFrames() {
     if (!manifest) return;
-    generation++;
-    frames = manifest[mobile.matches ? 'mobile' : 'desktop'].frames;
-    cache.clear(); loading.clear(); failed.clear(); queue = [];
+    sequence?.dispose();
+    sequence = new window.PodoscopeFrames(manifest[mobile.matches ? 'mobile' : 'desktop'].frames, scheduleUpdate, 10);
     lastDrawn = -1;
     sizeDirty = true;
     stage.dataset.ready = 'false';
@@ -181,7 +120,6 @@
   addEventListener('resize', () => { positionPoster(); sizeDirty = true; scheduleUpdate(); }, { passive: true });
   new ResizeObserver(() => { positionPoster(); sizeDirty = true; scheduleUpdate(); }).observe(stage);
   mobile.addEventListener('change', selectFrames);
-  landscapePhone.addEventListener('change', selectFrames);
   reducedMotion.addEventListener('change', selectFrames);
   track.dataset.static = String(staticMode());
   track.dataset.enhanced = String(!staticMode());
